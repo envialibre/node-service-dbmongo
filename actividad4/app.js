@@ -1,8 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { MongoClient, ObjectId } = require('mongodb');
+const cors = require('cors');
 
 const app = express();
+
+// Enable CORS for all requests
+app.use(cors());
 app.use(bodyParser.json());
 
 const uri = "mongodb+srv://envialibre:8kEza19QqfpwSlqi@cluster0.lgltjls.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
@@ -73,7 +77,7 @@ async function run() {
         }
       });
 
-    const PORT = process.env.PORT || 3000;
+    const PORT = process.env.PORT || 3005;
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
     });
